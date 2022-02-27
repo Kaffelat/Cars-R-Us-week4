@@ -36,7 +36,7 @@ class CarServiceInMemoryTest
         carService = new CarService(carRepository);
     }
 
-    @Test
+    /*@Test
     void getCars() {
         List<CarResponse> carResponses = carService.getCars();
         assertEquals(2,carResponses.size());
@@ -55,5 +55,5 @@ class CarServiceInMemoryTest
 
     @Test
     void deleteCar() {
-    }
+    }*/
 }
