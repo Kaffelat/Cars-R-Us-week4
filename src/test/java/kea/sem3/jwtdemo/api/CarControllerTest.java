@@ -99,7 +99,7 @@ class CarControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.id").exists());
         //Verify that it actually ended in the database
-        assertEquals(3, carRepository.count());
+        assertEquals(9, carRepository.count());
 
 
     }
