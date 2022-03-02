@@ -44,7 +44,19 @@ public class MemberService {
         member = memberRepository.save(member);
         return new MemberResponse(member.getUsername(), member.getCreated(), member.getRoles());
     }
+    public MemberResponse editMember(MemberRequest body, String username){
+        Member m = memberRepository.findById(username).orElseThrow(()->new Client4xxException("Member not found"));
+        m.setUsername(body.getUsername());
+        m.setEmail(body.getEmail());
+        m.setFirstName(body.getFirstName());
+        m.setLastName(body.getLastName());
+        m.setStreet(body.getStreet());
+        m.setCity(body.getCity());
+        m.setZip(body.getZip());
+        return new MemberResponse(memberRepository.save(m),true);
+    }
     public void deleteMember(String username){
         memberRepository.deleteById(username);
     }
+
 }
